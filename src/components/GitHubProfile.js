@@ -1,12 +1,13 @@
-import React, { Component, Fragment } from "react"
-import FetchComponent from '../Service/FetchComponent'
+import React, { Component, Fragment } from "react";
+import ElementUI from './UI/ElementUI'
 
 class GithubProfile extends Component {
     render() {
         return (
             <Fragment>
-                <FetchComponent></FetchComponent>
-                <div>Github profile</div>
+                <ElementUI Wrapper='header' typeClass='o' shadowSize={2}>
+                    <div>Github profile</div>
+                </ElementUI>
             </Fragment>
         )
     }
