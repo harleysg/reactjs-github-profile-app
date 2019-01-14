@@ -1,0 +1,15 @@
+.c-search {
+    // &_field { }
+    &_form {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+        padding: 0.5rem;
+    }
+    &_input {
+        display: block;
+        min-height: 1.7rem;
+        width: 100%;
+        border: none;
+    }
+}
