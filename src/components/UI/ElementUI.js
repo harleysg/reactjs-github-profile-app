@@ -1,9 +1,8 @@
 import React from 'react';
 
 const ElementUI = (props) => {
-    const { Wrapper, children, color, shadowSize, typeClass } = props;
-    const named = Wrapper
-    const className = typeClass === "c" ? `c-${named}` : typeClass === "o" ? `o-${named}` : null;
+    const { Wrapper, nameClass, children, color, shadowSize, typeClass } = props;
+    const className = typeClass === "c" ? `c-${nameClass}` : typeClass === "o" ? `o-${nameClass}` : null;
     const Shadow = shadowSize 
         ? shadowSize === 1 
             ? `u-shadow_${shadowSize}` 
@@ -18,7 +17,7 @@ const ElementUI = (props) => {
         : ''
     return (
     
-        <Wrapper className={`${className} ${Shadow} ${_color}`}>
+        <Wrapper className={`${className} ${props.className} ${Shadow} ${_color}`}>
             { children }
         </Wrapper>
     
