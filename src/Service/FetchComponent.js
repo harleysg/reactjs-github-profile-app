@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 /**
  * 
@@ -10,19 +11,19 @@ const FetchComponent = Wrapper => class Feth extends Component {
         this.state = { result: null }
     }
 
-    handleNewFetchWithNewProps = props => {
+    setNewStateAcrossFetch = props => {
         fetch(props)
             .then(r => r.json())
             .then(result => this.setState({ result }));
     };
 
     componentDidMount() {
-        this.handleNewFetchWithNewProps(this.props.url);
+        this.setNewStateAcrossFetch(this.props.url);
     }
 
     componentDidUpdate(prevProps, prevState) {
         if(this.props.url !== prevProps.url) {
-            this.handleNewFetchWithNewProps(this.props.url);
+            this.setNewStateAcrossFetch(this.props.url);
         }
     }
 
@@ -31,5 +32,10 @@ const FetchComponent = Wrapper => class Feth extends Component {
         return result ? <Wrapper data={result}/> : null
     }
 };
+
+FetchComponent.propTypes = {
+    Wrapper: PropTypes.element.isRequired,
+    url: PropTypes.string.isRequired,
+}
 
 export default FetchComponent;
